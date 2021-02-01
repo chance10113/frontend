@@ -7,8 +7,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 // import styled from "styled-components";
 
-const Register = (props) => {
-  const { value, submit, change, pageChange } = props;
+export default function Register(props)  {
+  const { value, submit, change, disabled, pageChange } = props;
 
   const onChange = (evt) => {
     const { name, value } = evt.target;
@@ -48,11 +48,16 @@ const Register = (props) => {
             name="phoneNumber"
             type="text"
             onChange={onChange}
-            value={valuelue.password}
+            value={value.password}
             placeholder="Phone Number"
           />
         </label>
-        <button className="submit-btn"> Register </button>
+        <button disabled={disabled} className="submit-btn"> Register </button>
+        <div className="errors">
+            <div>{errors.username}</div>
+            <div>{errors.password}</div>
+            <div>{errors.phoneNumber}</div>
+        </div>
       </form>
     </div>
   );
