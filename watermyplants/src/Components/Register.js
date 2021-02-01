@@ -1,8 +1,3 @@
-// Register here
-// Link to Login
-// Fields for username, password, phone number
-/// url/register
-
 import React from "react";
 import { Link } from "react-router-dom";
 // import styled from "styled-components";
@@ -62,3 +57,6 @@ export default function Register(props)  {
     </div>
   );
 };
+
+
+/// url/register
