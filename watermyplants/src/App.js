@@ -1,21 +1,25 @@
 import React from "react";
 import { Route, Switch, Link } from "react-router-dom";
 import "./App.css";
-import PrivateRoute from './Util/PrivateRoute';
+import PrivateRoute from "./Util/PrivateRoute";
 import Login from "./Components/Login";
 import Register from "./Components/Register";
-import Home from './Components/Home';
+import Home from "./Components/Home";
 
 function App() {
   return (
     <div className="App">
       <nav>
-        <Link to="/home">Home</Link>
+        {localStorage.getItem("token") ? (
+          <Link to="/home">Home</Link>
+        ) : (
+          <div></div>
+        )}
         <Link to="/login">Login</Link>
-        <Link to='/'>Register</Link>
+        <Link to="/">Register</Link>
       </nav>
       <Switch>
-        <PrivateRoute path='/home'>
+        <PrivateRoute path="/home">
           <Home />
         </PrivateRoute>
         <Route path="/login">
