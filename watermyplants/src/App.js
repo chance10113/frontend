@@ -1,6 +1,12 @@
 import "./App.css";
+import React from "react"
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 
-//Doop
+initialFormValues = {
+  username: "",
+  password: "",
+  phoneNumber: "",
+}
 
 function App() {
   return <div className="App"></div>;
