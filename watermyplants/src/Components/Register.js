@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 // import styled from "styled-components";
 
-export default function Register(props)  {
+export default function Register(props) {
   const { value, submit, change, disabled, pageChange } = props;
 
   const onChange = (evt) => {
@@ -19,8 +19,9 @@ export default function Register(props)  {
     <div className="register-container">
       <h1> Welcome to Water My Plants Registration!</h1>
 
-      <form className="Register-Form">
+      <form className="Register-Form" onSubmit={onSubmit}>
         <label>
+          Username
           <input
             name="username"
             type="text"
@@ -30,6 +31,7 @@ export default function Register(props)  {
           />
         </label>
         <label>
+          Password
           <input
             name="password"
             type="text"
@@ -39,6 +41,7 @@ export default function Register(props)  {
           />
         </label>
         <label>
+          Phone Number
           <input
             name="phoneNumber"
             type="text"
@@ -47,16 +50,24 @@ export default function Register(props)  {
             placeholder="Phone Number"
           />
         </label>
-        <button disabled={disabled} className="submit-btn"> Register </button>
+        <button disabled={disabled} className="submit-btn">
+          Register
+        </button>
         <div className="errors">
-            {/* <div>{errors.username}</div>
+          {/* <div>{errors.username}</div>
             <div>{errors.password}</div>
             <div>{errors.phoneNumber}</div> */}
+        </div>
+        <div>
+          Already Have An Account?
+          <Link to="/" onClick={pageChange}>
+            <br></br>
+            Login
+          </Link>
         </div>
       </form>
     </div>
   );
-};
-
+}
 
 /// url/register
