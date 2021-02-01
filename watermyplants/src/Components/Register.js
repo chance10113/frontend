@@ -32,7 +32,7 @@ const Register = () => {
     }
     return (
         <div>
-            <h2>Hello, from Login</h2>
+            <h2>Register</h2>
             <form onSubmit={handleSubmit}>
                 <label>Username
                     <input
