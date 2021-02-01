@@ -15,6 +15,8 @@ export default function Cardlist(props) {
             console.log(err)
         })
     }, [] )
+    
+    //Unfinished Use effect Hook.
 
     return(
         <div>

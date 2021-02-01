@@ -54,9 +54,9 @@ export default function Register(props)  {
         </label>
         <button disabled={disabled} className="submit-btn"> Register </button>
         <div className="errors">
-            <div>{errors.username}</div>
+            {/* <div>{errors.username}</div>
             <div>{errors.password}</div>
-            <div>{errors.phoneNumber}</div>
+            <div>{errors.phoneNumber}</div> */}
         </div>
       </form>
     </div>
