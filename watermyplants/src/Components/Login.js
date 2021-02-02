@@ -8,13 +8,17 @@ const [disabled, setDisabled] = useState(true)
 const schema = yup.object().shape({
   username: yup.string().required('A username is required').min(4, 'The Username needs to be 4 chars long'),
   password: yup.string().required('A password is required').min(5, 'The password needs to be at least 5 chars long'),
-  phonenumber: yup.string().required('A phone is required').min(10, 'Your phone number needs to be at least 10 chars long'),
+  phoneNumber: yup.string().required('A phone is required').min(10, 'Your phone number needs to be at least 10 chars long'),
 })
 
 export default function Login(props) {
-  const { value, submit, change, disabled, pageChange } = props;
+  const { value, submit, change, pageChange } = props;
 
-  const onChange = (evt) => {
+  useEffect(() => {
+    schema.isValid(value).then(valid => setDisabled(!valid))
+  }, [value])
+
+  const onChange = (evt) => {s
     const { name, value } = evt.target;
     change(name, value);
   };
@@ -54,7 +58,7 @@ export default function Login(props) {
             name="phoneNumber"
             type="text"
             onChange={onChange}
-            value={value.phonenumber}
+            value={value.phoneNumber}
             placeholder="Phone Number"
           />
         </label>
