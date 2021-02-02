@@ -1,20 +1,31 @@
 import React from 'react';
+import { Link } from "react-router-dom";
+import styled from "styled-components";
 
 const PlantCard = props => {
-
+    
     return (
-        <div className='card-container'>
-            <div className='card'>
-                <h4>Nickname: {props.name}</h4>
-                <h4>Species: {props.species}</h4>
-                <form></form>
-                <button>Edit</button>
-                {/* Testing */}
-                <button>Delete</button> 
-                {/* The delete button should delete the given card, the edit button should take you into another page. */}
+
+        <StyledCard>
+            <div className='card-container'>
+                <div className='card'>
+                    <div className='img-container'>
+                        <img alt='A plant' src={props.image} />
+                    </div>
+                    <h4>Nickname: {props.name}</h4>
+                    <h4>Species: {props.species}</h4>
+                    <button>Edit</button>
+                    {/* An edit button that takes you to a details page. */}
+                    <button>Delete</button>
+                    {/* The delete button should delete the given card. */}
+                </div>
             </div>
-        </div>
-    )
+        </StyledCard>
+    );
 }
 
 export default PlantCard
+
+const StyledCard = styled.div`
+
+`
