@@ -9,6 +9,7 @@ const PlantCard = props => {
                 <h4>Species: {props.species}</h4>
                 <form></form>
                 <button>Edit</button>
+                {/* Testing */}
                 <button>Delete</button> 
                 {/* The delete button should delete the given card, the edit button should take you into another page. */}
             </div>
