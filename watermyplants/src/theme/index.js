@@ -1,4 +1,3 @@
-export default {
-//doobly doop
-
+export default{
+    firstColor: 
 }

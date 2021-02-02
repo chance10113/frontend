@@ -23,5 +23,7 @@ function App() {
 export default App;
 
 const StyledApp = styled.div`
+  p{
 
+  }
 `

@@ -8,10 +8,10 @@ import { ThemeProvider } from "styled-components";
 
 
 ReactDOM.render(
-    <Router>
     <ThemeProvider theme={theme}>
+    <Router>
     <App />
-    </ThemeProvider>
-    </Router>,
+    </Router>
+    </ThemeProvider>,
     document.getElementById("root")
 );

@@ -1,6 +1,15 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import * as yup from 'yup';
 // import styled from "styled-components";
+
+const [disabled, setDisabled] = useState(true)
+
+const schema = yup.object().shape({
+  username: yup.string().required('A username is required').min(4, 'The Username needs to be 4 chars long'),
+  password: yup.string().required('A password is required').min(5, 'The password needs to be at least 5 chars long'),
+  phonenumber: yup.string().required('A phone is required').min(10, 'Your phone number needs to be at least 10 chars long'),
+})
 
 export default function Login(props) {
   const { value, submit, change, disabled, pageChange } = props;
@@ -33,7 +42,7 @@ export default function Login(props) {
           Password
           <input
             name="password"
-            type="input"
+            type="text"
             onChange={onChange}
             value={value.password}
             placeholder="Password"
@@ -45,7 +54,7 @@ export default function Login(props) {
             name="phoneNumber"
             type="text"
             onChange={onChange}
-            value={value.password}
+            value={value.phonenumber}
             placeholder="Phone Number"
           />
         </label>
