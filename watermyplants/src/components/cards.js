@@ -5,6 +5,7 @@ import styled from "styled-components";
 const PlantCard = props => {
     
     return (
+
         <StyledCard>
             <div className='card-container'>
                 <div className='card'>
