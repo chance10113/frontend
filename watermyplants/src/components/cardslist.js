@@ -21,7 +21,7 @@ export default function Cardlist(props) {
     return(
         <div>
             {plants.map((elem) => {
-                return <Card key = {elem.id}  name={props.name} species={props.species} image={props.image}/>
+                return <Card key = {elem.id}  name={elem.name} species={elem.species} image={elem.image} h2o={elem.h2o}/>
             })}
         </div>
     )
