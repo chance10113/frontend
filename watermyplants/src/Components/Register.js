@@ -2,7 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 // import styled from "styled-components";
 
-export default function Register(props) {
+
+export default function Register(props)  {
+
   const { value, submit, change, disabled, pageChange } = props;
 
   const onChange = (evt) => {

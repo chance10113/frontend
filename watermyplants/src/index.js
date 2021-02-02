@@ -3,11 +3,15 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import { BrowserRouter as Router } from "react-router-dom";
+import theme from "./theme/index"
+import { ThemeProvider } from "styled-components";
 
 
 ReactDOM.render(
     <Router>
+    <ThemeProvider theme={theme}>
     <App />
-    </Router>, 
+    </ThemeProvider>
+    </Router>,
     document.getElementById("root")
 );
