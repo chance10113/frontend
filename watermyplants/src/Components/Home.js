@@ -49,9 +49,10 @@ const Home = () => {
     return (
         <div>
             <h1>Pocket Planters</h1>
-            <p>I should be hidden if not logged in!</p>
-            
+            {/* <p>I should be hidden if not logged in!</p> */}
+            <body>
             <Cardlist />
+            </body>
 
             <StyledForm> 
                 {/* Still need the onSubmit here. */}

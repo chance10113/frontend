@@ -132,9 +132,9 @@ const Register = () => {
             </button>
             </StyledInputs>
             <div className="errors">
-              <div>{errors.username}</div>
+              {/* <div>{errors.username}</div>
                 <div>{errors.password}</div>
-                <div>{errors.phoneNumber}</div>
+                <div>{errors.phoneNumber}</div> */}
             </div>
             <StyledLoginLink>
               Already Have An Account?
