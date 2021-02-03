@@ -27,7 +27,7 @@ const Home = () => {
          nickName:'', 
          species: '', 
          h2oFrequency: '',
-         image: '', 
+         image: '',
     }
 
     const [value, setValue] = useState(initialFormValues);
@@ -48,16 +48,18 @@ const Home = () => {
 
     return (
         <div>
+            <header>
             <h1>Pocket Planters</h1>
+            </header>
             {/* <p>I should be hidden if not logged in!</p> */}
             <body>
             <Cardlist />
             </body>
-
+            <footer>
             <StyledForm> 
                 {/* Still need the onSubmit here. */}
             <label>
-                Nickname
+                Nickname:
                 <input
                     name="nickName"
                     type="text"
@@ -67,7 +69,7 @@ const Home = () => {
                 />
             </label>
             <label>
-                Species
+                Species:
                 <input
                     name="species"
                     type="text"
@@ -77,7 +79,7 @@ const Home = () => {
                 />
             </label>
             <label>
-                H2o-Frequency
+                H2o:
                 <input
                     name="h2oFrequency"
                     type="text"
@@ -87,7 +89,7 @@ const Home = () => {
                 />
             </label>
             <label>
-                Id
+                Id:
                 <input 
                     name="id"
                     type="text"
@@ -97,7 +99,7 @@ const Home = () => {
                 />
             </label>
             <label>
-                image
+                Image:
                 <input 
                     name="image"
                     type="text"
@@ -110,11 +112,12 @@ const Home = () => {
             <button disabled={disabled} className="submit-btn">
                 Add Plant
             </button>
-            </StyledForm>
                 <div>{errors.nickName}</div>
                 <div>{errors.species}</div>
                 <div>{errors.h2oFrequency}</div>
                 <div>{errors.id}</div>
+            </StyledForm>
+            </footer>
         </div>
     )
 }
