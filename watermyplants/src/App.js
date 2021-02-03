@@ -15,17 +15,16 @@ function App() {
         ) : (
           <div></div>
         )}
-        <Link to="/login">Login</Link>
-        <Link to="/">Register</Link>
+
       </nav>
       <Switch>
         <PrivateRoute path="/home">
           <Home />
         </PrivateRoute>
-        <Route path="/login">
+        <Route exact path="/">
           <Login />
         </Route>
-        <Route path="/">
+        <Route path="/register">
           <Register />
         </Route>
       </Switch>
