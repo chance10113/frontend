@@ -46,15 +46,15 @@ const StyledLoginLink = styled.div`
 
 const schema = yup.object().shape({
     username: yup.string().required('A username is required').min(4, 'The Username needs to be 4 chars long'),
-    password: yup.string().required('A password is required').min(5, 'The password needs to be at least 5 chars long'),
-    phoneNumber: yup.string().required('A phone is required').min(10, 'Your phone number needs to be at least 10 chars long'),
+    email: yup.string().required('A email is required'),
+    password: yup.string().required('A password is required').min(6, 'Your password needs to be at least 10 chars long'),
   });
 
 // Refactor this code and put in App.js what needs to be there
 const Register = () => {
     const initialFormValues = {
         username: '',
-        phoneNumber:'',
+        email:'',
         password: '',
     }
     const [value, setValue] = useState(initialFormValues);
@@ -75,12 +75,13 @@ const Register = () => {
     const onSubmit = e => {
         e.preventDefault();
         axios
-        .post('')
+        .post('https://water-my-plants-four.herokuapp.com/auth/register', value)
         .then(res=>{
             // When we submit register page, do we need token?
             // Push to login page?
             console.log(res);
-            push('/login')
+            window.alert('User account creation: Successful!')
+            push('/')
         })
         .catch(err=>{
             console.log('Login Axios error', err.response)
@@ -108,23 +109,23 @@ const Register = () => {
               />
             </label>
             <label>
-              Password
+              Email
               <input
-                name="password"
-                type="text"
+                name="email"
+                type="email"
                 onChange={onChange}
-                value={value.password}
-                placeholder="Password"
+                value={value.email}
+                placeholder="Email"
               />
             </label>
             <label>
-              Phone Number
+              Password
               <input
-                name="phoneNumber"
-                type="text"
+                name="password"
+                type="password"
                 onChange={onChange}
-                value={value.phoneNumber}
-                placeholder="Phone Number"
+                value={value.password}
+                placeholder="Password"
               />
             </label>
             <button disabled={disabled} className="submit-btn">
