@@ -10,7 +10,7 @@ const schema = yup.object().shape({
     nickName: yup.string().required('A Nickname is required').min(2, 'This nickname needs to be at least 2 chars long'),
     species: yup.string().required('A species is required').min(4, 'This species needs to be at least 4 chars long'),
     h2oFrequency: yup.string().required('An H2o-Frequency is required').min(1, 'This h2oFrequency needs to be at least 1 chars long'),
-})
+});
 
 const Home = () => {
 
@@ -22,8 +22,17 @@ const Home = () => {
         image: '',
     }
 
+    const initialFormErrors = {
+         id: '', 
+         nickName:'', 
+         species: '', 
+         h2oFrequency: '',
+         image: '', 
+    }
+
     const [value, setValue] = useState(initialFormValues);
     const [disabled, setDisabled] = useState(true);
+    const [errors, setErrors] = useState(initialFormErrors);
 
     useEffect(() => {
         schema.isValid(value).then(valid => setDisabled(!valid))
@@ -43,6 +52,7 @@ const Home = () => {
             <p>I should be hidden if not logged in!</p>
             
             <Cardlist />
+
             <StyledForm> 
                 {/* Still need the onSubmit here. */}
             <label>
@@ -100,6 +110,10 @@ const Home = () => {
                 Add Plant
             </button>
             </StyledForm>
+                <div>{errors.nickName}</div>
+                <div>{errors.species}</div>
+                <div>{errors.h2oFrequency}</div>
+                <div>{errors.id}</div>
         </div>
     )
 }
