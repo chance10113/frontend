@@ -4,7 +4,7 @@ import styled from "styled-components";
 import * as font from "./fonts"
 
 const PlantCard = props => {
-    
+
     return (
 
         <StyledCard>
@@ -23,6 +23,7 @@ const PlantCard = props => {
                 </div>
             </div>
         </StyledCard>
+
     );
 }
 
@@ -31,3 +32,4 @@ export default PlantCard
 const StyledCard = styled.div`
 
 `
+

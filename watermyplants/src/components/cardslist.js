@@ -16,7 +16,7 @@ export default function Cardlist(props) {
         })
     }, [] )
     
-    //Unfinished Use effect Hook.
+    //Unfinished Use effect Hook. To be changed with useAuth hook
 
     return(
         <div>

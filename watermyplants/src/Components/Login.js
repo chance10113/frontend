@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 import * as yup from 'yup';
 // import styled from "styled-components";
 
-
-
 const schema = yup.object().shape({
   username: yup.string().required('A username is required').min(4, 'The Username needs to be 4 chars long'),
   password: yup.string().required('A password is required').min(5, 'The password needs to be at least 5 chars long'),
