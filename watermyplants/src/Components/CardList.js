@@ -31,9 +31,11 @@ export default function Cardlist(props) {
           })}>Create Plant</button>
           </div>
             
-            {plants.map((elem,idx) => {
-                return <Card key = {idx} id={elem.id} name={elem.name} species={elem.species} image={elem.image} h2o={elem.h2o} setPlants={setPlants} plants={plants}/>
+          <div>
+            {plants.map((elem) => {
+                return <Card key = {elem.id}  plant={elem}/>
             })}
+        </div>
         </div>
     )
 
