@@ -23,24 +23,25 @@ const schema = yup.object().shape({
     .min(1, "This h2oFrequency needs to be at least 1 chars long"),
 });
 
+const initialFormErrors = {
+  user_id: "",
+  nickname: "",
+  species: "",
+  h2o_frequency: "",
+  image_url: "",
+};
+
 // Component to create plant
 const CreatePlant = (props) => {
-    // console.log(props)
-  const initialFormValues = {
-    user_id: Date.now(),
-    nickname: "",
-    species: "",
-    h2o_frequency: "",
-    image_url: "",
-  };
 
-  const initialFormErrors = {
-    user_id: "",
-    nickname: "",
-    species: "",
-    h2o_frequency: "",
-    image_url: "",
-  };
+    const initialFormValues = {
+      user_id: 8,
+      nickname: "",
+      species: "",
+      h2o_frequency: "",
+      image_url: "",
+    };
+    // console.log("Create plant props", props.plants)
 
 
   const [value, setValue] = useState(initialFormValues);
@@ -48,30 +49,31 @@ const CreatePlant = (props) => {
   const [errors, setErrors] = useState(initialFormErrors);
 
 
-//   useEffect(() => {
-//     schema.isValid(value).then((valid) => setDisabled(!valid));
-//   }, [value]);
+  useEffect(() => {
+    schema.isValid(value).then((valid) => setDisabled(!valid));
+  }, [value]);
 
   const onChange = (e) => {
     setValue({
       ...value,
       [e.target.name]: e.target.value,
     });
-    console.log(value)
   };
 
 
       const postPlant = (e) => {
           e.preventDefault();
-          let newPlant;
           axiosWithAuth()
-          .post('https://water-my-plants-four.herokuapp.com/plants', newPlant)
+          .post('https://water-my-plants-four.herokuapp.com/plants', value)
           .then(res=>{
             console.log(res.data)
+          props.setPlants(value)
+          console.log(props.plants)
           })
           
           .catch(err=>{
               console.log('Create plant error', err.response)
+              console.log(value)
           })
       }
   
@@ -120,7 +122,7 @@ const CreatePlant = (props) => {
             placeholder="Image: optional"
           />
         </label>
-        {/* <button disabled={disabled} className="submit-btn"> */}
+        <button disabled={disabled} className="submit-btn" />
         <button>
           Add Plant
         </button>

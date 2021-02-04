@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Cardlist from "./CardList";
+import Cardlist from "./PlantList";
 
 const Home = () => { 
   return (
