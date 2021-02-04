@@ -5,7 +5,7 @@ import PrivateRoute from "./Util/PrivateRoute";
 import Login from "./Components/Login";
 import Register from "./Components/Register";
 import CreatePlant from './Components/CreatePlant';
-import Plant from './Components/Plant';
+import PlantCard from './Components/PlantCard';
 import EditPlant from './Components/EditPlant';
 import axiosWithAuth from './Util/axiosWithAuth'
 import PlantList from "./Components/PlantList";
@@ -36,12 +36,12 @@ function App() {
       </nav>
       <Switch>
 
-        {/* <PrivateRoute path='/editplant:id'>
-        <EditPlant/>
+        <PrivateRoute path='/editplant:id'>
+        <EditPlant plants={plants} setPlants={setPlants}/>
         </PrivateRoute>
-        <PrivateRoute path='/plant:id'>
-          <Plant/>
-        </PrivateRoute> */}
+        {/* <PrivateRoute path='/plant:id'>
+          <PlantCard/>
+        </PrivateRoute>  */}
 
         <PrivateRoute exact path='/createplant'>
           <CreatePlant plants={plants} setPlants={setPlants}/>

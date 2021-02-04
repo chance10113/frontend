@@ -2,6 +2,7 @@ import React, { useEffect , useState} from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import axiosWithAuth from '../Util/axiosWithAuth';
 
+
 // To edit plant, prop drill formValue state from Card.js
 // Change that state on the handleChange function
 // Submit that Changed state as an axios(withAuth) put request
@@ -14,27 +15,36 @@ const initialItem = {
     species:'',
     h2o_frequency:'',
     image_url:'',
-    isWatered:'',
 
 
 
 }
 
 const EditPlant = (props) => {
-    const {id} = useParams();
+    let {id} = useParams();
+    const newID = id.replace(/:/g, ''); 
+   
+
+    
     const {push} = useHistory();
     const [item,setItem] = useState(initialItem)
+    console.log(item)
+   
+   
     useEffect(()=>{
         axiosWithAuth()
-        .get(`https://water-my-plants-four.herokuapp.com/plants/${id}`)
+        .get(`https://water-my-plants-four.herokuapp.com/plants/${newID}`)
         .then(res=>{
             console.log(res)
+            setItem(res.data)
         })
         .catch(err=>{
             console.log('Grab item error', err.response)
         })
-    },[id])
-    
+    },[newID])
+ 
+  
+  
 
     const handleChange = e => {
         setItem({
@@ -45,9 +55,10 @@ const EditPlant = (props) => {
     const handleSubmit = e => {
         e.preventDefault();
         axiosWithAuth()
-        .put(`https://water-my-plants-four.herokuapp.com/plants/${id}`, item)
+        .put(`https://water-my-plants-four.herokuapp.com/plants/${newID}`, item)
         .then(res=>{
-            console.log(res)
+            props.setPlants(res.data)
+            push('/plantlist')
         })
         .catch(err=>{
             console.log('edit error', err.response)
@@ -91,14 +102,7 @@ const EditPlant = (props) => {
              onChange={handleChange} 
              />
              </label>
-             <label>is watered
-                  <input 
-             type='text'
-             name='isWatered'
-             value={item.isWatered}
-             onChange={handleChange} 
-             />
-             </label>
+            
              <button>Edit Plant</button>
 
          </form> 

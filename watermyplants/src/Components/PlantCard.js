@@ -3,7 +3,6 @@ import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 // import * as font from "./fonts"
 import axiosWithAuth from '../Util/axiosWithAuth'
-import EditPlant from './EditPlant';
 
 // Delete axios request here
 
@@ -28,10 +27,9 @@ const PlantCard = props => {
             console.log("delete function error", err.response)
         })
     };
-    // const editPlant = () => {
-    //     <EditPlant plants={props.plants}/>
-    //     push(`/editplant:${props.id}`)
-    // }
+    const editPlant = () => {
+        push(`/editplant:${props.plant.id}`)
+    }
   
     return (
 
@@ -44,7 +42,7 @@ const PlantCard = props => {
                 <h4>Nickname: {props.plant.nickname}</h4>
                 <h4>Species: {props.plant.species}</h4>
                 <h4>H2o Frequency: {props.plant.h2o_frequency}</h4>
-                <button>Edit</button>
+                <button onClick={editPlant}>Edit</button>
                 {/* An edit button that allows one to update the plant object. */}
                 <button onClick={() => deletePlant(props.plant)}>Delete</button>
                 {/* The delete button should delete the given card. */}
