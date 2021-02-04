@@ -1,9 +1,25 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import * as font from "./fonts"
+// import * as font from "./fonts"
+import axiosWithAuth from '../Util/axiosWithAuth'
 
+// Delete axios request here
+// 
 const PlantCard = props => {
+
+    // const deltePlant = (plant) => {
+    //     axiosWithAuth()
+    //     .delete(`https://water-my-plants-four.herokuapp.com/plants/${plant.id}`)
+    //     .then(res => {
+    //         console.log(res)
+    //         console.log(plant)
+    //     })
+    //     .catch(err => {
+    //         console.log(plant)
+    //         console.log("delete function error", err.response)
+    //     })
+    // };
     
     return (
 

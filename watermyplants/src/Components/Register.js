@@ -87,7 +87,6 @@ const Register = () => {
         // Push to login page?
         console.log(res);
         window.alert("User account creation: Successful!");
-
         push("/");
       })
       .catch((err) => {

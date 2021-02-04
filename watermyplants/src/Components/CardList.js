@@ -1,20 +1,21 @@
 import { useEffect, useState } from "react"
-import Card from "./cards.js"
-import axios from "axios"
+import Card from "./Card.js"
+import axiosWithAuth from '../Util/axiosWithAuth';
 export default function Cardlist(props) {
 
     const [plants, setPlants] = useState([])
 
-    useEffect( () => {
-        axios.get()
-        .then((res) => {
-            setPlants(res.data)
-            console.log(res)
-        })
-        .catch((err) => {
-            console.log(err)
-        })
-    }, [] )
+    useEffect(() => {
+        axiosWithAuth()
+          .get("https://water-my-plants-four.herokuapp.com/plants")
+          .then((res) => {
+            setPlants(res.data);
+            console.log(res.data)
+          })
+          .catch((err) => {
+            console.log("Home, fetching data error", err.response);
+          });
+      }, []);
     
     //Unfinished Use effect Hook.
 
