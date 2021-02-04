@@ -89,7 +89,7 @@ const Login = () => {
       .then((res) => {
         console.log(res)
         localStorage.setItem("token", res.data.token);
-        push("/home");
+        push("/plantlist");
         setValue(initialFormValues);
       })
       .catch((err) => {

@@ -1,11 +1,9 @@
 import React from 'react';
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
-// import * as font from "./fonts"
 import axiosWithAuth from '../Util/axiosWithAuth'
 import EditPlant from './EditPlant';
 
-// Delete axios request here
 
 const PlantCard = props => {
     // console.log(props.plant);
@@ -17,15 +15,16 @@ const PlantCard = props => {
         axiosWithAuth()
         .delete(`https://water-my-plants-four.herokuapp.com/plants/${delPlant.id}`)
         .then(res => {
-            console.log(res)
+            console.log(delPlant)
             console.log(res.data)
-            const newPlantList = props.plant.filter(plant => plant.id !== delPlant.id )
-            props.setPlants(newPlantList)
+            // const newPlantList = props.plant.filter(plant => plant.id !== delPlant.id )
+            // props.setPlants(newPlantList)
             push('/home')   
         })
         .catch(err => {
             // console.log(plant)
-            console.log("delete function error", err.response)
+            console.log(delPlant);
+            console.log("delete function error", err.response);
         })
     };
     // const editPlant = () => {

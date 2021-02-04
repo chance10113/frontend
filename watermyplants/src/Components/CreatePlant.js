@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Link, useHistory } from "react-router-dom";
 import * as yup from "yup";
 import styled from "styled-components";
 import axiosWithAuth from "../Util/axiosWithAuth";
@@ -34,21 +33,22 @@ const initialFormErrors = {
 // Component to create plant
 const CreatePlant = (props) => {
 
-    const initialFormValues = {
-      user_id: 8,
-      nickname: "",
-      species: "",
-      h2o_frequency: "",
-      image_url: "",
-    };
-    // console.log("Create plant props", props.plants)
-
-
+  const [user_id, setuser_id] = useState(props.plants.length);
+  const initialFormValues = {
+    user_id: 3,
+    nickname: "plantyellow",
+    species: "loveplantssomuch",
+    h2o_frequency: 6,
+    image_url: "",
+  };
+  
   const [value, setValue] = useState(initialFormValues);
   const [disabled, setDisabled] = useState(true);
   const [errors, setErrors] = useState(initialFormErrors);
-
-
+  
+  // console.log("Create plant props", props.plants)
+  
+  
   useEffect(() => {
     schema.isValid(value).then((valid) => setDisabled(!valid));
   }, [value]);
@@ -64,7 +64,7 @@ const CreatePlant = (props) => {
       const postPlant = (e) => {
           e.preventDefault();
           axiosWithAuth()
-          .post('https://water-my-plants-four.herokuapp.com/plants', value)
+          .post('https://water-my-plants-four.herokuapp.com/plants', initialFormValues)
           .then(res=>{
             console.log(res.data)
           props.setPlants(value)
@@ -74,6 +74,7 @@ const CreatePlant = (props) => {
           .catch(err=>{
               console.log('Create plant error', err.response)
               console.log(value)
+              setuser_id(user_id + 1)
           })
       }
   

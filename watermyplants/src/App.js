@@ -24,6 +24,7 @@ function App() {
         console.log("Home, fetching data error", err.response);
       });
   }, []);
+  console.log(plants);
 
   return (
     <div className="App">
