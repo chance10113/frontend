@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
+import axiosWithAuth from "../Util/axiosWithAuth";
+import Cardlist from "./CardList";
 
-const Home =() => {
-    return (
-        <div>
-            <h2>Hello, from Home!</h2>
-            <p>I should be hidden if not logged in!</p>
-        </div>
-    )
-}
+const Home = () => { 
+  return (
+    <div>
+      <h2>Water My Plants</h2>
+      <Cardlist />
+    </div>
+  );
+};
 export default Home;
