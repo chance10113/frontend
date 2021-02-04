@@ -25,6 +25,7 @@ const schema = yup.object().shape({
 
 // Component to create plant
 const CreatePlant = (props) => {
+    // console.log(props)
   const initialFormValues = {
     user_id: Date.now(),
     nickname: "",
@@ -41,37 +42,43 @@ const CreatePlant = (props) => {
     image_url: "",
   };
 
+
   const [value, setValue] = useState(initialFormValues);
   const [disabled, setDisabled] = useState(true);
   const [errors, setErrors] = useState(initialFormErrors);
 
-  useEffect(() => {
-    schema.isValid(value).then((valid) => setDisabled(!valid));
-  }, [value]);
+
+//   useEffect(() => {
+//     schema.isValid(value).then((valid) => setDisabled(!valid));
+//   }, [value]);
 
   const onChange = (e) => {
     setValue({
       ...value,
       [e.target.name]: e.target.value,
     });
+    console.log(value)
   };
 
-  const onSubmit = (e) => {
-      e.preventDefault();
-      axiosWithAuth()
-      .post('https://water-my-plants-four.herokuapp.com/plants', value)
-      .then(res=>{
-        console.log(res.data)
-      })
-      
-      .catch(err=>{
-          console.log('Create plant error', err.response)
-      })
-  }
+
+      const postPlant = (e) => {
+          e.preventDefault();
+          let newPlant;
+          axiosWithAuth()
+          .post('https://water-my-plants-four.herokuapp.com/plants', newPlant)
+          .then(res=>{
+            console.log(res.data)
+          })
+          
+          .catch(err=>{
+              console.log('Create plant error', err.response)
+          })
+      }
+  
 
   return (
     <div>
-      <StyledForm onSubmit={onSubmit}>
+      <StyledForm onSubmit={postPlant}>
         {/* Still need the onSubmit here. */}
         <label>
           Nickname:

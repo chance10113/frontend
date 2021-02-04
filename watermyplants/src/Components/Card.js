@@ -8,20 +8,22 @@ import EditPlant from './EditPlant';
 // Delete axios request here
 
 const PlantCard = props => {
+    // console.log(props.plant);
     const {push} = useHistory()
 
   
     const deletePlant = (plant) => {
         axiosWithAuth()
-        .delete(`https://water-my-plants-four.herokuapp.com/plants/${props.id}`)
+        .delete(`https://water-my-plants-four.herokuapp.com/plants/${plant.id}`)
         .then(res => {
             console.log(res)
-            props.setPlants(res.data)
-            push('/home')
-            
+            console.log(res.data)
+            // const newPlantList = props.plant.filter(plant => plant.id !==  )
+            // props.setPlants(res.data)
+            push('/home')   
         })
         .catch(err => {
-            console.log(plant)
+            // console.log(plant)
             console.log("delete function error", err.response)
         })
     };
@@ -43,7 +45,7 @@ const PlantCard = props => {
                 <h4>H2o Frequency: {props.plant.h2o_frequency}</h4>
                 <button>Edit</button>
                 {/* An edit button that allows one to update the plant object. */}
-                <button>Delete</button>
+                <button onClick={() => deletePlant(props.plant)}>Delete</button>
                 {/* The delete button should delete the given card. */}
             </div>
         </div>
