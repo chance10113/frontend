@@ -54,10 +54,6 @@ const schema = yup.object().shape({
     .string()
     .required("A password is required")
     .min(5, "The password needs to be at least 5 chars long"),
-  phoneNumber: yup
-    .string()
-    .required("A phone is required")
-    .min(10, "Your phone number needs to be at least 10 chars long"),
 });
 
 // Refactor this code to put in App.js what should be there
@@ -79,19 +75,22 @@ const Login = () => {
       ...value,
       [e.target.name]: e.target.value,
     });
+    console.log(value);
   };
 
   const pageChangeReset = () => {
     setValue(initialFormValues);
   };
 
-  const onSubmit = (e) => {
+  const login = (e) => {
     e.preventDefault();
     axios
-      .post("")
+      .post("https://water-my-plants-four.herokuapp.com/auth/login", value)
       .then((res) => {
-        localStorage.setItem("token", res.data.payload);
+        console.log(res)
+        localStorage.setItem("token", res.data.token);
         push("/home");
+        setValue(initialFormValues);
       })
       .catch((err) => {
         console.log("Login Axios error", err.response);
@@ -101,7 +100,7 @@ const Login = () => {
   return (
     <StyledLoginContainer>
       <h1> Welcome to Water My Plants Login! </h1>
-      <StyledForm className="login-form" onSubmit={onSubmit}>
+      <StyledForm className="login-form" onSubmit={login}>
         <StyledInputs>
           <label>
             Username
@@ -121,16 +120,6 @@ const Login = () => {
               onChange={onChange}
               value={value.password}
               placeholder="Password"
-            />
-          </label>
-          <label>
-            Phone Number
-            <input
-              name="phoneNumber"
-              type="tel"
-              onChange={onChange}
-              value={value.phoneNumber}
-              placeholder="Phone Number"
             />
           </label>
           <button disabled={disabled} className="submit-btn">
