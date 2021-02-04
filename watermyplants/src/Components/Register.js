@@ -6,11 +6,18 @@ import axios from "axios";
 import "./style.css";
 
 // Styled-Components
+const StyledSandwichDiv = styled.div`
+  background-image: url("https://images.unsplash.com/photo-1579167728798-a1cf3d595960?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NHx8Ym90YW5pY2FsfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60");
+  height: 50%;
+  width: 100%;
+  margin: -5% auto 0 auto;
+  `;
+
 const StyledRegisterContainer = styled.div`
   color: black;
-  height: 20rem;
+  height: 43rem;
   width: auto;
-  //background-color: ;
+  background-color: #e4fde1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -18,16 +25,13 @@ const StyledRegisterContainer = styled.div`
   margin: 1px 1px;
   flex-wrap: wrap;
   flex-direction: column;
-  background-color: blue;
-  background-image:url("https://images.unsplash.com/photo-1579167728798-a1cf3d595960?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NHx8Ym90YW5pY2FsfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60");
-  background-size:contain;
-  background-repeat:round ;
-`;
+  margin: auto;
+  `;
 
 const StyledForm = styled.form`
+  background-color: #e4fde1;
   height: auto;
-  /* background-color: red; */
-  width:25%;
+  width:19%;
   margin: auto auto auto auto ;
   padding: 1% 0% 0% 5%;
 
@@ -36,6 +40,7 @@ const StyledForm = styled.form`
 const StyledInputs = styled.div`
   color: black;
   /* background-color: yellow; */
+  background-image: url("https://images.unsplash.com/photo-1491147334573-44cbb4602074?ixid=MXwxMjA3fDB8MHxzZWFyY2h8N3x8Ym90YW5pY2FsfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60 ");
   height: auto;
   width: auto;
   display: flex;
@@ -51,7 +56,8 @@ const StyledInputs = styled.div`
 `;
 
 const StyledLabel = styled.div`
-  background-color: #6ba292 ;
+  /* background-color: #6ba292 ; */
+  color:white;
 `;
 
 const StyledButton = styled.div`
@@ -120,6 +126,8 @@ const Register = () => {
 
   return (
     <StyledRegisterContainer>
+      <StyledSandwichDiv>
+      </StyledSandwichDiv>
       <h1> Welcome to Water My Plants Registration!</h1>
       <StyledForm onSubmit={onSubmit}>
         <StyledInputs>
@@ -168,11 +176,11 @@ const Register = () => {
           </button>
           </StyledButton>
         </StyledInputs>
-        <div className="errors">
-          {/* <div>{errors.username}</div>
+        {/* <div className="errors">
+          <div>{errors.username}</div>
                 <div>{errors.password}</div>
                 <div>{errors.phoneNumber}</div> */}
-        </div>
+        {/* </div> */}
         <StyledLoginLink>
           Already Have An Account?
           <Link to="/" onClick={pageChangeReset}>

@@ -3,14 +3,21 @@ import { Link, useHistory } from "react-router-dom";
 import * as yup from "yup";
 import styled from "styled-components";
 import axios from "axios";
-// import "./style.css";
+import "./style.css";
 
 // Styled-Components
+const StyledSandwichDiv = styled.div`
+  background-image: url("https://images.unsplash.com/photo-1579167728798-a1cf3d595960?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NHx8Ym90YW5pY2FsfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60");
+  height: 50%;
+  width: 100%;
+  margin: -5% auto 0 auto;
+`;
+
 const StyledLoginContainer = styled.div`
   color: black;
-  height: 42rem;
+  height: 43rem;
   width: auto;
-  //background-color: ;
+  background-color: #e4fde1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -18,23 +25,44 @@ const StyledLoginContainer = styled.div`
   margin: 1px 1px;
   flex-wrap: wrap;
   flex-direction: column;
-  background-image:url("https://images.unsplash.com/photo-1579167728798-a1cf3d595960?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NHx8Ym90YW5pY2FsfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60");
-  background-size:contain;
-  background-repeat:space
-  
-  `;
+  /* background-image:url("https://images.unsplash.com/photo-1579167728798-a1cf3d595960?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NHx8Ym90YW5pY2FsfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"); */
+  /* background-size:contain; */
+  /* background-repeat:space */
+`;
 
 const StyledForm = styled.form`
   height: auto;
+  background-color: #e4fde1;
 `;
+
+// #547027
+// #142c08
+// #514b24
+// #5a8737
+// #83a84f
+// #325411
+// #618921
+// #6a9646
+// #6a8a3e
+// #3c6c22
+// #2f3c10
+// #c4be9e
+// #dd614a *
+// #ff9b71 *
+// #ffdc7c *
+// #6ba292 **
+// #e4fde1
+// #B5651D - Nathan
+// #E08B3E Nathan
 
 const StyledInputs = styled.div`
   color: black;
   height: auto;
   width: auto;
-  //background-color:
+  background-color: #6ba292;
+  background-image: url("https://images.unsplash.com/photo-1491147334573-44cbb4602074?ixid=MXwxMjA3fDB8MHxzZWFyY2h8N3x8Ym90YW5pY2FsfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60 ");
   display: flex;
-  border: 3px solid slategray;
+  border: 4.5px solid #223f36;
   box-shadow: 0.8rem 0.8rem gray;
   align-items: center;
   justify-content: space-evenly;
@@ -46,18 +74,20 @@ const StyledInputs = styled.div`
 `;
 
 const StyledLabel = styled.div`
-  /* background-color: brown; */
-  color:white;
-  margin: 2% auto 2% auto;
+  /* background-color: #6ba292; */
+  opacity: 1;
+  color: white;
+  margin: 0% auto 0% auto;
+  /* padding: 20vh auto auto 2%; */
 `;
 
 const StyledButton = styled.div`
-background-color: white ;
-margin: 5% auto 2% auto;
-`
+  background-color: #6ba292;
+  margin: 0% auto 2% auto;
+`;
 
 const StyledRegisterLink = styled.div`
-  margin: 10% auto auto auto;
+  margin: 10% auto -7% auto;
 `;
 
 // Import yup
@@ -115,6 +145,7 @@ const Login = () => {
 
   return (
     <StyledLoginContainer>
+      <StyledSandwichDiv></StyledSandwichDiv>
       <h1> Welcome to Water My Plants Login! </h1>
       <StyledForm className="login-form" onSubmit={login}>
         <StyledInputs>
@@ -143,9 +174,9 @@ const Login = () => {
             </label>
           </StyledLabel>
           <StyledButton>
-          <button disabled={disabled} className="submit-btn">
-            Login
-          </button>
+            <button disabled={disabled} className="submit-btn">
+              Login
+            </button>
           </StyledButton>
         </StyledInputs>
         <div className="errors">
