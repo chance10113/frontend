@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
-import * as yup from 'yup';
+import * as yup from "yup";
 import styled from "styled-components";
-import axios from 'axios';
+import axios from "axios";
+// import "./style.css";
 
 // Styled-Components
 const StyledLoginContainer = styled.div`
   color: black;
-  height: auto;
+  height: 42rem;
   width: auto;
   //background-color: ;
   display: flex;
@@ -17,7 +18,11 @@ const StyledLoginContainer = styled.div`
   margin: 1px 1px;
   flex-wrap: wrap;
   flex-direction: column;
-`;
+  background-image:url("https://images.unsplash.com/photo-1579167728798-a1cf3d595960?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NHx8Ym90YW5pY2FsfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60");
+  background-size:contain;
+  background-repeat:space
+  
+  `;
 
 const StyledForm = styled.form`
   height: auto;
@@ -39,6 +44,17 @@ const StyledInputs = styled.div`
   flex-wrap: wrap;
   flex-direction: column;
 `;
+
+const StyledLabel = styled.div`
+  /* background-color: brown; */
+  color:white;
+  margin: 2% auto 2% auto;
+`;
+
+const StyledButton = styled.div`
+background-color: white ;
+margin: 5% auto 2% auto;
+`
 
 const StyledRegisterLink = styled.div`
   margin: 10% auto auto auto;
@@ -87,7 +103,7 @@ const Login = () => {
     axios
       .post("https://water-my-plants-four.herokuapp.com/auth/login", value)
       .then((res) => {
-        console.log(res)
+        console.log(res);
         localStorage.setItem("token", res.data.token);
         push("/home");
         setValue(initialFormValues);
@@ -102,29 +118,35 @@ const Login = () => {
       <h1> Welcome to Water My Plants Login! </h1>
       <StyledForm className="login-form" onSubmit={login}>
         <StyledInputs>
-          <label>
-            Username
-            <input
-              name="username"
-              type="text"
-              onChange={onChange}
-              value={value.username}
-              placeholder="Username"
-            />
-          </label>
-          <label>
-            Password
-            <input
-              name="password"
-              type="pass"
-              onChange={onChange}
-              value={value.password}
-              placeholder="Password"
-            />
-          </label>
+          <StyledLabel>
+            <label>
+              Username
+              <input
+                name="username"
+                type="text"
+                onChange={onChange}
+                value={value.username}
+                placeholder="Username"
+              />
+            </label>
+          </StyledLabel>
+          <StyledLabel>
+            <label>
+              Password
+              <input
+                name="password"
+                type="pass"
+                onChange={onChange}
+                value={value.password}
+                placeholder="Password"
+              />
+            </label>
+          </StyledLabel>
+          <StyledButton>
           <button disabled={disabled} className="submit-btn">
             Login
           </button>
+          </StyledButton>
         </StyledInputs>
         <div className="errors">
           {/* <div>{errors.username}</div>

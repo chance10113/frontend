@@ -3,11 +3,12 @@ import { Link, useHistory } from "react-router-dom";
 import * as yup from "yup";
 import styled from "styled-components";
 import axios from "axios";
+import "./style.css";
 
 // Styled-Components
 const StyledRegisterContainer = styled.div`
   color: black;
-  height: auto;
+  height: 20rem;
   width: auto;
   //background-color: ;
   display: flex;
@@ -17,17 +18,26 @@ const StyledRegisterContainer = styled.div`
   margin: 1px 1px;
   flex-wrap: wrap;
   flex-direction: column;
+  background-color: blue;
+  background-image:url("https://images.unsplash.com/photo-1579167728798-a1cf3d595960?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NHx8Ym90YW5pY2FsfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60");
+  background-size:contain;
+  background-repeat:round ;
 `;
 
 const StyledForm = styled.form`
   height: auto;
+  /* background-color: red; */
+  width:25%;
+  margin: auto auto auto auto ;
+  padding: 1% 0% 0% 5%;
+
 `;
 
 const StyledInputs = styled.div`
   color: black;
+  /* background-color: yellow; */
   height: auto;
   width: auto;
-  //background-color:
   display: flex;
   border: 3px solid slategray;
   box-shadow: 0.8rem 0.8rem gray;
@@ -40,8 +50,18 @@ const StyledInputs = styled.div`
   flex-direction: column;
 `;
 
+const StyledLabel = styled.div`
+  background-color: #6ba292 ;
+`;
+
+const StyledButton = styled.div`
+background-color: #6ba292 ;
+`
+
 const StyledLoginLink = styled.div`
+  width:auto;
   margin: 10% auto auto auto;
+  /* background-color:antiquewhite; */
 `;
 
 const schema = yup.object().shape({
@@ -101,42 +121,52 @@ const Register = () => {
   return (
     <StyledRegisterContainer>
       <h1> Welcome to Water My Plants Registration!</h1>
-
       <StyledForm onSubmit={onSubmit}>
         <StyledInputs>
-          <label>
-            Username
-            <input
-              name="username"
-              type="text"
-              onChange={onChange}
-              value={value.username}
-              placeholder="Username"
-            />
-          </label>
-          <label>
-            Email
-            <input
-              name="email"
-              type="email"
-              onChange={onChange}
-              value={value.email}
-              placeholder="Email"
-            />
-          </label>
-          <label>
-            Password
-            <input
-              name="password"
-              type="password"
-              onChange={onChange}
-              value={value.password}
-              placeholder="Password"
-            />
-          </label>
+          <StyledLabel>
+            <label>
+              Username
+              <br></br>
+              <input
+                name="username"
+                type="text"
+                onChange={onChange}
+                value={value.username}
+                placeholder="Username"
+              />
+            </label>
+          </StyledLabel>
+          <StyledLabel>
+            <label>
+              Email
+              <br></br>
+              <input
+                name="email"
+                type="email"
+                onChange={onChange}
+                value={value.email}
+                placeholder="Email"
+              />
+            </label>
+          </StyledLabel>
+          <StyledLabel>
+            <label>
+              Password
+              <br></br>
+              <input
+                name="password"
+                type="password"
+                onChange={onChange}
+                value={value.password}
+                placeholder="Password"
+              />
+            </label>
+          </StyledLabel>
+          <StyledButton>
           <button disabled={disabled} className="submit-btn">
             Register
           </button>
+          </StyledButton>
         </StyledInputs>
         <div className="errors">
           {/* <div>{errors.username}</div>

@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Switch, Link } from "react-router-dom";
-import "./App.css";
+// import "./App.css";
+// import "./Components/style.css";
 import PrivateRoute from "./Util/PrivateRoute";
 import Login from "./Components/Login";
 import Register from "./Components/Register";
@@ -15,7 +16,6 @@ function App() {
         ) : (
           <div></div>
         )}
-
       </nav>
       <Switch>
         <PrivateRoute path="/home">
