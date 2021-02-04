@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react"
 import Card from "./Card.js"
 import axiosWithAuth from '../Util/axiosWithAuth';
+import CreatePlant from './CreatePlant';
+import { useHistory } from "react-router-dom";
 export default function Cardlist(props) {
 
     const [plants, setPlants] = useState([])
+    const {push} = useHistory()
 
     useEffect(() => {
         axiosWithAuth()
@@ -21,8 +24,15 @@ export default function Cardlist(props) {
 
     return(
         <div>
-            {plants.map((elem) => {
-                return <Card key = {elem.id}  name={elem.name} species={elem.species} image={elem.image} h2o={elem.h2o}/>
+          <div>
+          <button onClick={(()=>{
+            <CreatePlant plants={plants} setPlants={setPlants}/>
+            push('/createplant')
+          })}>Create Plant</button>
+          </div>
+            
+            {plants.map((elem,idx) => {
+                return <Card key = {idx} id={elem.id} name={elem.name} species={elem.species} image={elem.image} h2o={elem.h2o} setPlants={setPlants} plants={plants}/>
             })}
         </div>
     )

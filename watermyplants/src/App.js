@@ -5,7 +5,9 @@ import PrivateRoute from "./Util/PrivateRoute";
 import Login from "./Components/Login";
 import Register from "./Components/Register";
 import Home from "./Components/Home";
-
+import CreatePlant from './Components/CreatePlant';
+import Card from './Components/Card';
+import EditPlant from './Components/EditPlant';
 function App() {
   return (
     <div className="App">
@@ -18,6 +20,15 @@ function App() {
 
       </nav>
       <Switch>
+        <PrivateRoute path='/editplant:id'>
+        <EditPlant/>
+        </PrivateRoute>
+        <PrivateRoute path='/plant:id'>
+          <Card/>
+        </PrivateRoute>
+        <PrivateRoute path='/createplant'>
+          <CreatePlant/>
+        </PrivateRoute>
         <PrivateRoute path="/home">
           <Home />
         </PrivateRoute>

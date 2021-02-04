@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import axiosWithAuth from "../Util/axiosWithAuth";
 import Cardlist from "./CardList";
 
 const Home = () => { 
