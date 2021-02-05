@@ -44,7 +44,7 @@ const CreatePlant = ({ setPlants }) => {
 
   const [value, setValue] = useState(initialFormValues);
   const [disabled, setDisabled] = useState(true);
-  const [errors, setErrors] = useState(initialFormErrors);
+  const [errors,] = useState(initialFormErrors);
 
   useEffect(() => {
     schema.isValid(value).then((valid) => setDisabled(!valid));
