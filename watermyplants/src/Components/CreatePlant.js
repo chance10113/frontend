@@ -3,6 +3,7 @@ import { Link, useHistory } from "react-router-dom";
 import * as yup from "yup";
 import styled from "styled-components";
 import axiosWithAuth from "../Util/axiosWithAuth";
+import color from '../background.css'
 
 const schema = yup.object().shape({
   user_id: yup
@@ -71,6 +72,7 @@ const CreatePlant = (props) => {
 
   return (
     <div className='form'>
+      <h1>Create Your Own Plant!</h1>
       <StyledForm onChange='form' onSubmit={onSubmit}>
         {/* Still need the onSubmit here. */}
         <label>
@@ -122,6 +124,7 @@ const CreatePlant = (props) => {
         <div>{errors.h2oFrequency}</div>
         <div>{errors.id}</div>
       </StyledForm>
+
     </div>
   );
 };
@@ -163,7 +166,7 @@ const StyledForm = styled.form`
 
 @media(max-width: 1920px){
 
-  width:50%;
+  width:35%;
   display:flex;
   flex-wrap:wrap;
   justify-content: center;

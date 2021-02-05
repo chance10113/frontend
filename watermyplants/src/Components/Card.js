@@ -4,6 +4,7 @@ import styled from "styled-components";
 // import * as font from "./fonts"
 import axiosWithAuth from '../Util/axiosWithAuth'
 import EditPlant from './EditPlant';
+import color from '../background.css'
 
 // Delete axios request here
 
@@ -141,7 +142,6 @@ font-size: 1.2em;
 font-family: arial;
 color: antiquewhite;
 font-weight: unset;
-/* border: 2.5px solid red; */
 
 }
 
