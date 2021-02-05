@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Link, useHistory } from "react-router-dom";
 import * as yup from "yup";
 import styled from "styled-components";
 import axiosWithAuth from "../Util/axiosWithAuth";
@@ -31,11 +30,10 @@ const initialFormErrors = {
   image_url: "",
 };
 
-// Component to create plant
 const CreatePlant = (props) => {
 
     const initialFormValues = {
-      user_id: 8,
+      user_id: 1,
       nickname: "",
       species: "",
       h2o_frequency: "",

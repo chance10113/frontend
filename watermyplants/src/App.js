@@ -5,7 +5,6 @@ import PrivateRoute from "./Util/PrivateRoute";
 import Login from "./Components/Login";
 import Register from "./Components/Register";
 import CreatePlant from './Components/CreatePlant';
-import PlantCard from './Components/PlantCard';
 import EditPlant from './Components/EditPlant';
 import axiosWithAuth from './Util/axiosWithAuth'
 import PlantList from "./Components/PlantList";

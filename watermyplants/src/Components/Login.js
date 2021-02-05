@@ -3,13 +3,13 @@ import { Link, useHistory } from "react-router-dom";
 import * as yup from 'yup';
 import styled from "styled-components";
 import axios from 'axios';
+import "./style.css";
 
 // Styled-Components
 const StyledLoginContainer = styled.div`
   color: black;
   height: auto;
   width: auto;
-  //background-color: ;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -27,7 +27,6 @@ const StyledInputs = styled.div`
   color: black;
   height: auto;
   width: auto;
-  //background-color:
   display: flex;
   border: 3px solid slategray;
   box-shadow: 0.8rem 0.8rem gray;
@@ -44,7 +43,6 @@ const StyledRegisterLink = styled.div`
   margin: 10% auto auto auto;
 `;
 
-// Import yup
 const schema = yup.object().shape({
   username: yup
     .string()
@@ -56,7 +54,6 @@ const schema = yup.object().shape({
     .min(5, "The password needs to be at least 5 chars long"),
 });
 
-// Refactor this code to put in App.js what should be there
 const Login = () => {
   const initialFormValues = {
     username: "",

@@ -1,13 +1,57 @@
 import React, { useEffect , useState} from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import axiosWithAuth from '../Util/axiosWithAuth';
+import "./style.css";
+import styled from "styled-components";
 
 
-// To edit plant, prop drill formValue state from Card.js
-// Change that state on the handleChange function
-// Submit that Changed state as an axios(withAuth) put request
-// Prop drill changed Plant state to update Plant list
-// Push back to Home Component
+// Why all divs?
+const StyledContainer = styled.div`
+  color: black;
+  height: 43rem;
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: auto auto auto auto;
+  flex-wrap: wrap;
+  flex-direction: column;
+`;
+
+const StyledH1 = styled.div`
+  font-weight: bold;
+  color: black;
+`;
+
+const StyledForm = styled.div`
+  height: auto;
+  background-color: #e4fde1;
+`;
+
+const StyledInputs = styled.div`
+  color: black;
+  height: auto;
+  width: 120%;
+  background-color: #6ba292;
+  display: flex;
+  border: 4.5px solid #223f36;
+  box-shadow: 0.8rem 0.8rem gray;
+  align-items: center;
+  justify-content: space-evenly;
+  text-align: match-parent;
+  padding: 5% 5% 5% 5%;
+  margin: 0% 0% 0% 0%;
+  flex-wrap: wrap;
+  flex-direction: column;
+`;
+
+const StyledLabel = styled.div`
+  color: black;
+  margin: 0% auto 0% auto;
+`;
+
+
 const initialItem = {
     id:'',
     user_id:'',
@@ -65,49 +109,66 @@ const EditPlant = (props) => {
         })
 
     }
-    return(
-        <div>
-          <form onSubmit={handleSubmit}>
-              <label>
-                  Nickname:
-             <input 
-             type='text'
-             name='nickname'
-             value={item.nickname}
-             onChange={handleChange} 
-             />
-             </label>
-             <label>species:
-               <input 
-             type='text'
-             name='species'
-             value={item.species}
-             onChange={handleChange} 
-             />
-             </label>
-             <label>
-                 H2o
-             <input 
-             type='text'
-             name='h2o_frequency'
-             value={item.h2o_frequency}
-             onChange={handleChange} 
-             />
-             </label>
-             <label>image url
-               <input 
-             type='text'
-             name='image_url'
-             value={item.image_url}
-             onChange={handleChange} 
-             />
-             </label>
-            
-             <button>Edit Plant</button>
-
-         </form> 
-        
-        </div>
-    )
+    return (
+        <StyledContainer>
+          <StyledForm>
+            <form onSubmit={handleSubmit}>
+              <StyledInputs>
+                <StyledH1> Edit Your Plant Here </StyledH1>
+                <StyledLabel>
+                  <label>
+                    Nickname:
+                    <br></br>
+                    <input
+                      type="text"
+                      name="nickname"
+                      value={item.nickname}
+                      onChange={handleChange}
+                    />
+                  </label>
+                </StyledLabel>
+                <StyledLabel>
+                  <label>
+                    Species:
+                    <br></br>
+                    <input
+                      type="text"
+                      name="species"
+                      value={item.species}
+                      onChange={handleChange}
+                    />
+                  </label>
+                </StyledLabel>
+                <StyledLabel>
+                  <label>
+                    H2O
+                    <br></br>
+                    <input
+                      type="text"
+                      name="h2o_frequency"
+                      value={item.h2o_frequency}
+                      onChange={handleChange}
+                    />
+                  </label>
+                </StyledLabel>
+                <StyledLabel>
+                  <label>
+                    Image URL
+                    <br></br>
+                    <input
+                      type="text"
+                      name="image_url"
+                      value={item.image_url}
+                      onChange={handleChange}
+                    />
+                  </label>
+                </StyledLabel>
+                <button>Edit Plant</button>
+              </StyledInputs>
+            </form>
+          </StyledForm>
+        </StyledContainer>
+      );
 }
 export default EditPlant;
+

@@ -1,8 +1,6 @@
-import Card from "./PlantCard.js";
 import { useHistory } from "react-router-dom";
 import PlantCard from './PlantCard';
 function Cardlist(props) {
-// Passing plants and setPlants through props
 console.log(props.plants);
   const { push } = useHistory();
   return (

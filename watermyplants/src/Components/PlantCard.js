@@ -1,15 +1,13 @@
 import React from 'react';
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
-// import * as font from "./fonts"
 import axiosWithAuth from '../Util/axiosWithAuth'
 
-// Delete axios request here
+
 
 const PlantCard = props => {
-    // console.log(props.plant);
+
     const {push} = useHistory()
-    console.log(props);
 
   
     const deletePlant = (delPlant) => {
@@ -23,10 +21,10 @@ const PlantCard = props => {
             push('/home')   
         })
         .catch(err => {
-            // console.log(plant)
             console.log("delete function error", err.response)
         })
     };
+    // What's this edit
     const editPlant = () => {
         push(`/editplant:${props.plant.id}`)
     }
