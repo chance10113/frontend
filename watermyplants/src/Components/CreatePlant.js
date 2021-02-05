@@ -3,7 +3,7 @@ import { Link, useHistory } from "react-router-dom";
 import * as yup from "yup";
 import styled from "styled-components";
 import axiosWithAuth from "../Util/axiosWithAuth";
-import color from '../background.css'
+import color from '../custom.css'
 
 const schema = yup.object().shape({
   user_id: yup

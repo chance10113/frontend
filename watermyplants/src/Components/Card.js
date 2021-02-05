@@ -4,7 +4,7 @@ import styled from "styled-components";
 // import * as font from "./fonts"
 import axiosWithAuth from '../Util/axiosWithAuth'
 import EditPlant from './EditPlant';
-import color from '../background.css'
+import color from '../custom.css'
 
 // Delete axios request here
 
