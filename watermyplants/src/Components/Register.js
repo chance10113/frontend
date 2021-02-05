@@ -4,6 +4,7 @@ import * as yup from "yup";
 import styled from "styled-components";
 import axios from "axios";
 import "./style.css";
+import { REGISTER_URL } from '../Util/Private'
 
 // Styled-Components
 const StyledTopDiv = styled.div`
@@ -17,7 +18,6 @@ const StyledRegisterContainer = styled.div`
   color: black;
   height: 43rem;
   width: auto;
-  background-color: #e4fde1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -79,13 +79,13 @@ const schema = yup.object().shape({
     .min(6, "Your password needs to be at least 10 chars long"),
 });
 
-// Refactor this code and put in App.js what needs to be there
+const initialFormValues = {
+  username: "",
+  email: "",
+  password: "",
+};
+
 const Register = () => {
-  const initialFormValues = {
-    username: "",
-    email: "",
-    password: "",
-  };
   const [value, setValue] = useState(initialFormValues);
   const [disabled, setDisabled] = useState(true);
   const { push } = useHistory();
@@ -104,10 +104,8 @@ const Register = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("https://water-my-plants-four.herokuapp.com/auth/register", value)
+      .post(REGISTER_URL, value)
       .then((res) => {
-        // When we submit register page, do we need token?
-        // Push to login page?
         console.log(res);
         window.alert("User account creation: Successful!");
         push("/");

@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import * as yup from "yup";
 import styled from "styled-components";
-import axios from "axios";
+import axios from 'axios';
 import "./style.css";
+import { LOGIN_URL } from '../Util/Private'
 
 // Styled-Components
 const StyledTopDiv = styled.div`
@@ -17,7 +18,6 @@ const StyledLoginContainer = styled.div`
   color: black;
   height: 43rem;
   width: auto;
-  background-color: #e4fde1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -40,8 +40,6 @@ const StyledInputs = styled.div`
   color: black;
   height: auto;
   width: auto;
-  background-color: #6ba292;
-  background-image: url("https://images.unsplash.com/photo-1491147334573-44cbb4602074?ixid=MXwxMjA3fDB8MHxzZWFyY2h8N3x8Ym90YW5pY2FsfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60 ");
   display: flex;
   border: 4.5px solid #223f36;
   box-shadow: 0.8rem 0.8rem gray;
@@ -68,7 +66,6 @@ const StyledRegisterLink = styled.div`
   margin: 10% auto -7% auto;
 `;
 
-// Import yup
 const schema = yup.object().shape({
   username: yup
     .string()
@@ -80,12 +77,12 @@ const schema = yup.object().shape({
     .min(5, "The password needs to be at least 5 chars long"),
 });
 
-// Refactor this code to put in App.js what should be there
+const initialFormValues = {
+  username: "",
+  password: "",
+};
+
 const Login = () => {
-  const initialFormValues = {
-    username: "",
-    password: "",
-  };
   const [disabled, setDisabled] = useState(true);
   const [value, setValue] = useState(initialFormValues);
   const { push } = useHistory();
@@ -109,11 +106,10 @@ const Login = () => {
   const login = (e) => {
     e.preventDefault();
     axios
-      .post("https://water-my-plants-four.herokuapp.com/auth/login", value)
+      .post(LOGIN_URL, value)
       .then((res) => {
-        console.log(res);
         localStorage.setItem("token", res.data.token);
-        push("/home");
+        push("/plantlist");
         setValue(initialFormValues);
       })
       .catch((err) => {
