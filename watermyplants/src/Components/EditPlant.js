@@ -64,7 +64,7 @@ const initialItem = {
 
 }
 
-const EditPlant = (props) => {
+const EditPlant = ({ setPlants }) => {
     let {id} = useParams();
     const newID = id.replace(/:/g, ''); 
    
@@ -89,19 +89,22 @@ const EditPlant = (props) => {
  
   
   
-
     const handleChange = e => {
         setItem({
             ...item,
             [e.target.name] : e.target.value
         })
     }
+
     const handleSubmit = e => {
         e.preventDefault();
         axiosWithAuth()
         .put(`https://water-my-plants-four.herokuapp.com/plants/${newID}`, item)
         .then(res=>{
-            props.setPlants(res.data)
+            return axiosWithAuth().get("https://water-my-plants-four.herokuapp.com/plants")
+        })
+        .then(res => {
+            setPlants(res.data)
             push('/plantlist')
         })
         .catch(err=>{

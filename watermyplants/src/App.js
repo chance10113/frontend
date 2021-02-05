@@ -14,7 +14,7 @@ function App() {
 
   useEffect(() => {
     axiosWithAuth()
-      .get("https://water-my-plants-four.herokuapp.com/plants")
+      .get("/plants")
       .then((res) => {
         setPlants(res.data);
         console.log(res.data)
@@ -23,6 +23,7 @@ function App() {
         console.log("Home, fetching data error", err.response);
       });
   }, []);
+  console.log(plants)
 
   return (
     <div className="App">
@@ -35,23 +36,19 @@ function App() {
       </nav>
       <Switch>
 
-        <PrivateRoute path='/editplant:id'>
+        <PrivateRoute exact path='/editplant:id'>
         <EditPlant plants={plants} setPlants={setPlants}/>
         </PrivateRoute>
-        {/* <PrivateRoute path='/plant:id'>
-          <PlantCard/>
-        </PrivateRoute>  */}
-
         <PrivateRoute exact path='/createplant'>
           <CreatePlant plants={plants} setPlants={setPlants}/>
         </PrivateRoute>
-        <PrivateRoute path="/plantlist">
+        <PrivateRoute exact path="/plantlist">
           <PlantList plants={plants} setPlants={setPlants} />
         </PrivateRoute>
-        <Route path="/register">
+        <Route exact path="/register">
           <Register />
         </Route>
-        <Route exact path="/">
+        <Route path="/">
           <Login />
         </Route>
       </Switch>

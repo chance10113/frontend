@@ -1,7 +1,8 @@
 import { useHistory } from "react-router-dom";
 import PlantCard from './PlantCard';
-function Cardlist(props) {
-console.log(props.plants);
+
+function Cardlist({ plants, setPlants}) {
+
   const { push } = useHistory();
   return (
     <div>
@@ -10,8 +11,8 @@ console.log(props.plants);
       </div>
       <div>
         <h1>Water My Plants</h1>
-        {props.plants.map((elem) => {
-          return <PlantCard key={elem.id} plant={elem} setPlants={props.setPlants} />;
+        {plants.map((elem) => {
+          return <PlantCard key={elem.id} plant={elem} setPlants={setPlants} />;
         })}
       </div>
     </div>

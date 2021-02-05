@@ -4,6 +4,7 @@ import * as yup from "yup";
 import styled from "styled-components";
 import axios from "axios";
 import "./style.css";
+import { REGISTER_URL } from '../Util/Private'
 
 // Styled-Components
 const StyledRegisterContainer = styled.div`
@@ -80,7 +81,7 @@ const Register = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("https://water-my-plants-four.herokuapp.com/auth/register", value)
+      .post(REGISTER_URL, value)
       .then((res) => {
         console.log(res);
         window.alert("User account creation: Successful!");

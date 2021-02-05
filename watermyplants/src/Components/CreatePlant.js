@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import * as yup from "yup";
 import styled from "styled-components";
 import axiosWithAuth from "../Util/axiosWithAuth";
+import { useHistory } from 'react-router-dom';
 
 const schema = yup.object().shape({
   user_id: yup
@@ -29,23 +30,21 @@ const initialFormErrors = {
   h2o_frequency: "",
   image_url: "",
 };
+const initialFormValues = {
+  user_id: 1,
+  nickname: "",
+  species: "",
+  h2o_frequency: "",
+  image_url: "",
+};
 
-const CreatePlant = (props) => {
-
-    const initialFormValues = {
-      user_id: 1,
-      nickname: "",
-      species: "",
-      h2o_frequency: "",
-      image_url: "",
-    };
-    // console.log("Create plant props", props.plants)
-
+const CreatePlant = ({ setPlants }) => {
+  // console.log("Create plant props", props.plants)
+  const { push } = useHistory()
 
   const [value, setValue] = useState(initialFormValues);
   const [disabled, setDisabled] = useState(true);
   const [errors, setErrors] = useState(initialFormErrors);
-
 
   useEffect(() => {
     schema.isValid(value).then((valid) => setDisabled(!valid));
@@ -58,23 +57,24 @@ const CreatePlant = (props) => {
     });
   };
 
-
-      const postPlant = (e) => {
-          e.preventDefault();
-          axiosWithAuth()
-          .post('https://water-my-plants-four.herokuapp.com/plants', value)
-          .then(res=>{
-            console.log(res.data)
-          props.setPlants(value)
-          console.log(props.plants)
-          })
-          
-          .catch(err=>{
-              console.log('Create plant error', err.response)
-              console.log(value)
-          })
-      }
-  
+  const postPlant = (e) => {
+    e.preventDefault();
+    axiosWithAuth()
+      .post("/plants", value)
+      .then((res) => {
+        console.log(res.data)
+        return axiosWithAuth().get("/plants")
+      })
+      .then(res => {
+        setPlants(res.data);
+        console.log(res.data)
+        push('/plantlist')
+        
+      })
+      .catch((err) => {
+        console.log("Create plant error", err.response);
+      });
+  };
 
   return (
     <div>
@@ -121,9 +121,7 @@ const CreatePlant = (props) => {
           />
         </label>
         <button disabled={disabled} className="submit-btn" />
-        <button>
-          Add Plant
-        </button>
+        <button>Add Plant</button>
         <div>{errors.nickName}</div>
         <div>{errors.species}</div>
         <div>{errors.h2oFrequency}</div>

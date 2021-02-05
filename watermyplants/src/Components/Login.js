@@ -4,6 +4,7 @@ import * as yup from 'yup';
 import styled from "styled-components";
 import axios from 'axios';
 import "./style.css";
+import { LOGIN_URL } from '../Util/Private'
 
 // Styled-Components
 const StyledLoginContainer = styled.div`
@@ -54,11 +55,12 @@ const schema = yup.object().shape({
     .min(5, "The password needs to be at least 5 chars long"),
 });
 
+const initialFormValues = {
+  username: "",
+  password: "",
+};
+
 const Login = () => {
-  const initialFormValues = {
-    username: "",
-    password: "",
-  };
   const [disabled, setDisabled] = useState(true);
   const [value, setValue] = useState(initialFormValues);
   const { push } = useHistory();
@@ -82,11 +84,10 @@ const Login = () => {
   const login = (e) => {
     e.preventDefault();
     axios
-      .post("https://water-my-plants-four.herokuapp.com/auth/login", value)
+      .post(LOGIN_URL, value)
       .then((res) => {
-        console.log(res)
         localStorage.setItem("token", res.data.token);
-        push("/home");
+        push("/plantlist");
         setValue(initialFormValues);
       })
       .catch((err) => {
