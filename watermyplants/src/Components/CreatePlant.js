@@ -139,6 +139,7 @@ const StyledForm = styled.form`
   justify-content: center;
   flex-direction: column;
   margin: 40% auto;
+  background-color: rgb(147, 184, 173);
   box-shadow: 10px 5px 5px darkgrey;
   border: 7.5px groove darkcyan;
 
@@ -168,6 +169,7 @@ const StyledForm = styled.form`
   justify-content: center;
   flex-direction: column;
   margin: 15% auto;
+  background-color: rgb(147, 184, 173);
   box-shadow: 10px 5px 5px darkgrey;
   border: 7.5px groove darkcyan;
 
