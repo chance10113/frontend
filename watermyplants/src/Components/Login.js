@@ -6,7 +6,7 @@ import axios from "axios";
 import "./style.css";
 
 // Styled-Components
-const StyledSandwichDiv = styled.div`
+const StyledTopDiv = styled.div`
   background-image: url("https://images.unsplash.com/photo-1579167728798-a1cf3d595960?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NHx8Ym90YW5pY2FsfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60");
   height: 50%;
   width: 100%;
@@ -123,7 +123,7 @@ const Login = () => {
 
   return (
     <StyledLoginContainer>
-      <StyledSandwichDiv></StyledSandwichDiv>
+      <StyledTopDiv></StyledTopDiv>
       <StyledH1>
         <h1> Welcome to Water My Plants Login! </h1>
       </StyledH1>
@@ -146,7 +146,7 @@ const Login = () => {
               Password
               <input
                 name="password"
-                type="pass"
+                type="password"
                 onChange={onChange}
                 value={value.password}
                 placeholder="Password"
