@@ -3,12 +3,14 @@ import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import axiosWithAuth from '../Util/axiosWithAuth';
 import '../custom.css';
+import axios from 'axios';
 
 
 
 const PlantCard = ({ plant, setPlants})  => {
 
     const { push } = useHistory()
+
 
     const deletePlant = (delPlant) => {
         axiosWithAuth()
