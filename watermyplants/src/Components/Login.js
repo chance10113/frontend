@@ -27,6 +27,10 @@ const StyledLoginContainer = styled.div`
   flex-direction: column;
 `;
 
+const StyledH1 = styled.div`
+  margin: 0% 0% 0% 0%;
+`;
+
 const StyledForm = styled.form`
   height: auto;
   background-color: #e4fde1;
@@ -120,7 +124,9 @@ const Login = () => {
   return (
     <StyledLoginContainer>
       <StyledSandwichDiv></StyledSandwichDiv>
-      <h1> Welcome to Water My Plants Login! </h1>
+      <StyledH1>
+        <h1> Welcome to Water My Plants Login! </h1>
+      </StyledH1>
       <StyledForm className="login-form" onSubmit={login}>
         <StyledInputs>
           <StyledLabel>
