@@ -78,6 +78,7 @@ const CreatePlant = ({ setPlants }) => {
 
   return (
     <div>
+      <h1>Add a Plant</h1>
       <StyledForm onSubmit={postPlant}>
         {/* Still need the onSubmit here. */}
         <label>
@@ -132,4 +133,54 @@ const CreatePlant = ({ setPlants }) => {
 };
 export default CreatePlant;
 
-const StyledForm = styled.form``;
+const StyledForm = styled.form`
+@media(max-width: 1000px){
+  width:50%;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content: center;
+  flex-direction: column;
+  margin: 40% auto;
+  background-color: rgb(147, 184, 173);
+  box-shadow: 10px 5px 5px darkgrey;
+  border: 7.5px groove darkcyan;
+  button{
+    
+        padding: 1.5% 4.5% ;
+        text-align:center;
+        font-family: arial;
+        color: white;
+        background-color: 	rgb(38, 38, 38);
+  }
+  label{
+    color: white;
+    margin: 1% auto;
+    width: 80%;
+    font-size: 1.5rem;
+  }
+}
+@media(max-width: 1920px){
+  width:50%;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content: center;
+  flex-direction: column;
+  margin: 15% auto;
+  background-color: rgb(147, 184, 173);
+  box-shadow: 10px 5px 5px darkgrey;
+  border: 7.5px groove darkcyan;
+  button{
+        padding: 1.5% 4.5% ;
+        text-align:center;
+        font-family: arial;
+        color: white;
+        background-color: 	rgb(38, 38, 38);
+  }
+  label{
+    color: white;
+    margin: 1% auto;
+    width: 80%;
+    font-size: 1.5rem;
+  }
+}
+`
