@@ -25,35 +25,12 @@ const StyledLoginContainer = styled.div`
   margin: 1px 1px;
   flex-wrap: wrap;
   flex-direction: column;
-  /* background-image:url("https://images.unsplash.com/photo-1579167728798-a1cf3d595960?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NHx8Ym90YW5pY2FsfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"); */
-  /* background-size:contain; */
-  /* background-repeat:space */
 `;
 
 const StyledForm = styled.form`
   height: auto;
   background-color: #e4fde1;
 `;
-
-// #547027
-// #142c08
-// #514b24
-// #5a8737
-// #83a84f
-// #325411
-// #618921
-// #6a9646
-// #6a8a3e
-// #3c6c22
-// #2f3c10
-// #c4be9e
-// #dd614a *
-// #ff9b71 *
-// #ffdc7c *
-// #6ba292 **
-// #e4fde1
-// #B5651D - Nathan
-// #E08B3E Nathan
 
 const StyledInputs = styled.div`
   color: black;
@@ -74,11 +51,8 @@ const StyledInputs = styled.div`
 `;
 
 const StyledLabel = styled.div`
-  /* background-color: #6ba292; */
-  opacity: 1;
   color: white;
   margin: 0% auto 0% auto;
-  /* padding: 20vh auto auto 2%; */
 `;
 
 const StyledButton = styled.div`

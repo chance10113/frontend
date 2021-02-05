@@ -11,7 +11,7 @@ const StyledSandwichDiv = styled.div`
   height: 50%;
   width: 100%;
   margin: -5% auto 0 auto;
-  `;
+`;
 
 const StyledRegisterContainer = styled.div`
   color: black;
@@ -22,24 +22,23 @@ const StyledRegisterContainer = styled.div`
   align-items: center;
   justify-content: center;
   text-align: center;
-  margin: 1px 1px;
   flex-wrap: wrap;
   flex-direction: column;
-  margin: auto;
-  `;
-
+  margin: 0% 0% 0% 0%;
+`;
+const StyledH1 = styled.div`
+  margin: 0% 0% 0% 5%;
+`;
 const StyledForm = styled.form`
   background-color: #e4fde1;
   height: auto;
-  width:19%;
-  margin: auto auto auto auto ;
+  width: 19%;
+  margin: auto auto auto auto;
   padding: 1% 0% 0% 5%;
-
 `;
 
 const StyledInputs = styled.div`
   color: black;
-  /* background-color: yellow; */
   background-image: url("https://images.unsplash.com/photo-1491147334573-44cbb4602074?ixid=MXwxMjA3fDB8MHxzZWFyY2h8N3x8Ym90YW5pY2FsfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60 ");
   height: auto;
   width: auto;
@@ -56,18 +55,16 @@ const StyledInputs = styled.div`
 `;
 
 const StyledLabel = styled.div`
-  /* background-color: #6ba292 ; */
-  color:white;
+  color: white;
 `;
 
 const StyledButton = styled.div`
-background-color: #6ba292 ;
-`
+  background-color: #6ba292;
+`;
 
 const StyledLoginLink = styled.div`
-  width:auto;
+  width: auto;
   margin: 10% auto auto auto;
-  /* background-color:antiquewhite; */
 `;
 
 const schema = yup.object().shape({
@@ -126,9 +123,10 @@ const Register = () => {
 
   return (
     <StyledRegisterContainer>
-      <StyledSandwichDiv>
-      </StyledSandwichDiv>
-      <h1> Welcome to Water My Plants Registration!</h1>
+      <StyledSandwichDiv></StyledSandwichDiv>
+      <StyledH1>
+        <h1> Welcome to Water My Plants Registration!</h1>
+      </StyledH1>
       <StyledForm onSubmit={onSubmit}>
         <StyledInputs>
           <StyledLabel>
@@ -171,9 +169,9 @@ const Register = () => {
             </label>
           </StyledLabel>
           <StyledButton>
-          <button disabled={disabled} className="submit-btn">
-            Register
-          </button>
+            <button disabled={disabled} className="submit-btn">
+              Register
+            </button>
           </StyledButton>
         </StyledInputs>
         {/* <div className="errors">
