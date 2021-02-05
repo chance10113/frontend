@@ -1,1 +1,5 @@
-WaterMyPlants
+This app is called "WaterMyPlants", which is made to be an application that lets you register, login, and then create a list of plants on content cards that help you keep track of them. Notable content is the plants species, its nickname, a picture, and how often it needs to be watered. According to the initial requirements, you needed a phone number to register and login, but due to our Unit 4 not being able to provide an API, Lambda provided an API for us to use instead, which required email instead of phone number.
+
+At the time of this writing, I believe it all works, at least as much as a build week submission/toy app does.
+
+I wrote the HTML and Styling for Login.js, Register.js, style.css, the initial JS for App, Login, and Register. I did not write the schema/yup for those, nor did I write any of the final product JS for App. I also did the Styling for EditPlant.js, but not much else on that document. I provided assistance on styling for plantCard and plantlist, but not much else. The rest of the work was done by either the other Unit 2 Nathan Chagar, or the Unit 3's Louis Stevenson, and Tyler Matthews.
