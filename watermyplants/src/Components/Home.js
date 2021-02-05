@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axiosWithAuth from "../Util/axiosWithAuth";
-import Cardlist from "./CardList";
+import Cardlist from "./PlantList";
 
 const Home = () => { 
   return (
