@@ -132,6 +132,7 @@ const Login = () => {
           <StyledLabel>
             <label>
               Username
+              <br></br>
               <input
                 name="username"
                 type="text"
@@ -144,6 +145,7 @@ const Login = () => {
           <StyledLabel>
             <label>
               Password
+              <br></br>
               <input
                 name="password"
                 type="password"
