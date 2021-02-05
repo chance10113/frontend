@@ -35,10 +35,10 @@ const CreatePlant = (props) => {
 
   const [user_id, setuser_id] = useState(props.plants.length);
   const initialFormValues = {
-    user_id: 3,
-    nickname: "plantyellow",
-    species: "loveplantssomuch",
-    h2o_frequency: 6,
+    user_id: 1,
+    nickname: "",
+    species: "",
+    h2o_frequency: "",
     image_url: "",
   };
   
@@ -64,7 +64,7 @@ const CreatePlant = (props) => {
       const postPlant = (e) => {
           e.preventDefault();
           axiosWithAuth()
-          .post('https://water-my-plants-four.herokuapp.com/plants', initialFormValues)
+          .post('https://water-my-plants-four.herokuapp.com/plants', value)
           .then(res=>{
             console.log(res.data)
           props.setPlants(value)

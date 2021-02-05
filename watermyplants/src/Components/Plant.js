@@ -8,7 +8,7 @@ import EditPlant from './EditPlant';
 const PlantCard = props => {
     // console.log(props.plant);
     const {push} = useHistory()
-    console.log(props);
+    // console.log(props);
 
   
     const deletePlant = (delPlant) => {
@@ -19,6 +19,7 @@ const PlantCard = props => {
             console.log(res.data)
             // const newPlantList = props.plant.filter(plant => plant.id !== delPlant.id )
             // props.setPlants(newPlantList)
+            // axiosWithAuth to do a .get for new plants
             push('/home')   
         })
         .catch(err => {
